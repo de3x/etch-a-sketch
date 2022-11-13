@@ -20,7 +20,7 @@ const removeChilds = (parent) => {
 function createGrid(size, colors) {
   // Empty grid/wrapper of any previous boxes before creating new grid
   removeChilds(gridWrapper);
-  changeGrid();
+  //   changeGrid();
 
   for (let i = 0; i < gridSize * gridSize; i++) {
     const square = document.createElement("div");
@@ -70,11 +70,17 @@ promptBtn.addEventListener("click", promptUser);
 
 // Reset the Grid (Erase everything)
 resetButton.addEventListener("click", () => {
-  const boxes = document.querySelectorAll(".box");
-  boxes.forEach((box) => {
-    box.classList.remove("colored");
-  });
-  createGrid(gridSize);
+  if (colorModeOn) {
+    createGrid(gridSize, "random");
+  } else {
+    createGrid(gridSize);
+  }
+
+  //   const boxes = document.querySelectorAll(".box");
+  //   boxes.forEach((box) => {
+  //     box.classList.remove("colored");
+  //   });
+  //   createGrid(gridSize);
   if (eraserCount % 2 != 0) toggleEraser();
 });
 
@@ -90,16 +96,28 @@ function toggleEraser() {
     boxes.forEach((box) => {
       box.addEventListener("mouseover", () => {
         box.classList.remove("colored");
+        box.style.backgroundColor = "rgb(215, 215, 215)";
       });
     });
     // Reenable normal mouseover behavior when toggling eraser off
   } else {
-    const boxes = document.querySelectorAll(".box");
-    boxes.forEach((box) => {
-      box.addEventListener("mouseover", () => {
-        box.classList.add("colored");
+    if (colorModeOn) {
+      const boxes = document.querySelectorAll(".box");
+      boxes.forEach((box) => {
+        box.addEventListener("mouseover", () => {
+          // square.classList.add("random-colored");
+          let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+          box.style.backgroundColor = "#" + randomColor;
+        });
       });
-    });
+    } else {
+      const boxes = document.querySelectorAll(".box");
+      boxes.forEach((box) => {
+        box.addEventListener("mouseover", () => {
+          box.classList.add("colored");
+        });
+      });
+    }
   }
   // Increase counter for erasureMode "state" hack
   eraserCount++;
@@ -110,6 +128,7 @@ eraserBtn.addEventListener("click", toggleEraser);
 
 function randomizeGrid() {
   randomBtn.classList.toggle("random-btn-active");
+
   if (eraserCount % 2 != 0) toggleEraser();
   changeGrid();
   if (!colorModeOn) {
