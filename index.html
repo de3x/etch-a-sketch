@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Etch-a-Sketch</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <header class="header">
+        <h1>Etch-a-Sketch</h1>
+      </header>
+      <div class="buttons-menu">
+        <button id="reset">Clear everything</button>
+        <div class="eraser-wrapper">
+          <button id="eraser">Toggle Eraser Mode</button>
+        </div>
+        <button id="prompt">Adjust Pixelation (1-100)</button>
+        <button id="random">Random Colors</button>
+      </div>
+      <!-- <div class="knob-wrapper"></div> -->
+      <div id="etch" class="grid-wrapper">
+        <div class="first circle"></div>
+        <div class="second circle"></div>
+      </div>
+    </div>
+  </body>
+  <script src="app.js"></script>
+</html>

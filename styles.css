@@ -1,0 +1,240 @@
+/* JOSH'S CSS RESET */
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+    2. Remove default margin
+  */
+* {
+  margin: 0;
+}
+
+/*
+    3. Allow percentage-based heights in the application
+  */
+html,
+body {
+  height: 100%;
+}
+
+/*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+    6. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+    7. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*
+    8. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/*
+    9. Create a root stacking context
+  */
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* End Josh Reset */
+
+html,
+body {
+  height: 100%;
+}
+
+/* <<<<<<<<<<<<<<<<<<<<<< MY STYLES BELOW >>>>>>>>>>>>>>>>>>>>>  */
+
+/* Temporary border for all elements */
+* {
+  /* border: 2px solid deeppink; */
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+body {
+  background-color: rgb(204, 198, 204);
+}
+
+.header {
+  grid-area: header;
+  align-self: center;
+}
+
+h1 {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.main-wrapper {
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1200px;
+  grid-template-rows: 200px 1fr;
+  grid-template-areas:
+    "header header"
+    "buttons grid";
+}
+.grid-wrapper {
+  background-color: rgba(190, 27, 9, 0.732);
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  position: relative;
+  padding: 64px;
+  padding-bottom: 96px;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+  gap: 0px;
+  min-width: 800px;
+  overflow: hidden;
+  grid-area: grid;
+  margin: 32px;
+  border-radius: 4%;
+}
+
+.buttons-menu {
+  grid-area: buttons;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px;
+  background-color: hsl(237, 37%, 61%);
+  margin: 32px;
+  border-radius: 2%;
+}
+
+.eraser-wrapper {
+  display: block;
+  min-width: 100%;
+  flex: 1;
+  margin-bottom: 32px;
+}
+.eraser-wrapper button {
+  min-width: 100%;
+  min-height: 100%;
+}
+
+button {
+  margin: 16px 0;
+  flex: 1;
+  font-size: 1.5rem;
+  min-width: 150px;
+  font-family: "Courier New", Courier, monospace;
+  border-radius: 8px;
+}
+
+.box {
+  background-color: rgb(215, 215, 215);
+}
+
+.colored {
+  background-color: black;
+}
+
+.random-colored {
+  background-color: rgb(200, 255, 192);
+}
+
+.active-button {
+  background-color: rgb(204, 142, 166);
+  border: 2px solid rgb(204, 142, 166);
+  padding: 4px;
+  box-shadow: 8px 4px 4px rgb(181, 120, 146);
+}
+
+#random {
+  background-image: linear-gradient(
+    90deg,
+    deeppink,
+    red,
+    coral,
+    rgb(164, 146, 45),
+    rgb(47, 89, 214)
+  );
+}
+
+.random-btn-active {
+  background-image: linear-gradient(
+    90deg,
+    rgb(191, 75, 137),
+    rgb(53, 126, 29),
+    rgb(211, 93, 50),
+    gold,
+    rgb(97, 35, 35)
+  );
+  /* background-color: rgb(204, 142, 166); */
+  border: 4px dashed limegreen;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  background-color: rgb(235, 243, 235);
+  border: 2px solid green;
+}
+.first.circle {
+  right: 2%;
+  bottom: 2%;
+}
+.second.circle {
+  left: 2%;
+  bottom: 2%;
+}
+
+@keyframes fade {
+  0% {
+    transform: translateY(0%);
+  }
+  30% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(0%);
+  }
+}
